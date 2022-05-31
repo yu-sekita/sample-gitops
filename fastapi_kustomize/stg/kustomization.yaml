@@ -1,0 +1,17 @@
+
+
+bases:
+  - ../base/
+namespace: stg
+
+configMapGenerator:
+- name: stg-config
+  files:
+  - config/config.env
+
+patchesStrategicMerge:
+  - ./patch-replicas.yaml
+
+images:
+  - name: yusekita/sample-fastapi
+    newTag: stg
